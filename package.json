@@ -1,0 +1,38 @@
+{
+  "name": "@upupming/compiler",
+  "version": "1.0.0",
+  "description": "Compiler implementation in node.js, just for teaching and learning purpose",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "standard && mocha --require ts-node/register 'test/**/*.{ts,tsx}' > test.log",
+    "compile": "tsc -p .",
+    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- --timeout 100000",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upupming/compiler.git"
+  },
+  "keywords": [
+    "compiler"
+  ],
+  "author": "upupming",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/upupming/compiler/issues"
+  },
+  "homepage": "https://github.com/upupming/compiler#readme",
+  "devDependencies": {
+    "@types/node": "^11.13.4",
+    "coveralls": "^3.0.3",
+    "istanbul": "^0.4.5",
+    "mocha": "^6.0.2",
+    "should": "^13.2.3",
+    "standard": "*",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.4.3"
+  },
+  "dependencies": {
+    "@types/mocha": "^5.2.6"
+  }
+}
