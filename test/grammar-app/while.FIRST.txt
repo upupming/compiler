@@ -1,0 +1,44 @@
+{
+  "terminals": [
+    "IDN",
+    "SIMI",
+    "INT"
+  ],
+  "nonTerminals": [
+    "S'",
+    "S",
+    "D",
+    "T",
+    "X",
+    "C"
+  ],
+  "FIRST": {
+    "IDN": [
+      "IDN"
+    ],
+    "SIMI": [
+      "SIMI"
+    ],
+    "INT": [
+      "INT"
+    ],
+    "S'": [
+      "INT"
+    ],
+    "S": [
+      "INT"
+    ],
+    "D": [
+      "INT"
+    ],
+    "T": [
+      "INT"
+    ],
+    "X": [
+      "INT"
+    ],
+    "C": [
+      "epsilon"
+    ]
+  }
+}

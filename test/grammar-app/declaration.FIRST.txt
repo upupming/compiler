@@ -1,0 +1,64 @@
+{
+  "terminals": [
+    ",",
+    "IDN",
+    "INT",
+    "FLOAT",
+    "BOOL",
+    "STRUCT",
+    "VOID"
+  ],
+  "nonTerminals": [
+    "S'",
+    "S",
+    "DLIST",
+    "TYPE"
+  ],
+  "FIRST": {
+    ",": [
+      ","
+    ],
+    "IDN": [
+      "IDN"
+    ],
+    "INT": [
+      "INT"
+    ],
+    "FLOAT": [
+      "FLOAT"
+    ],
+    "BOOL": [
+      "BOOL"
+    ],
+    "STRUCT": [
+      "STRUCT"
+    ],
+    "VOID": [
+      "VOID"
+    ],
+    "S'": [
+      "INT",
+      "FLOAT",
+      "BOOL",
+      "STRUCT",
+      "VOID"
+    ],
+    "S": [
+      "INT",
+      "FLOAT",
+      "BOOL",
+      "STRUCT",
+      "VOID"
+    ],
+    "DLIST": [
+      "IDN"
+    ],
+    "TYPE": [
+      "INT",
+      "FLOAT",
+      "BOOL",
+      "STRUCT",
+      "VOID"
+    ]
+  }
+}

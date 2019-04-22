@@ -1,0 +1,13 @@
+State    ,       IDN     INT     FLOAT   BOOL    STRUCT  VOID    $        S'      S       DLIST   TYPE    
+0                        s3      s4      s5      s6      s7                       1               2       
+1                                                                acc                                      
+2                s9                                                                       8               
+3                r4                                                                                       
+4                r5                                                                                       
+5                r6                                                                                       
+6                r7                                                                                       
+7                r8                                                                                       
+8        s10                                                     r1                                       
+9        r3                                                      r3                                       
+10               s11                                                                                      
+11       r2                                                      r2                                       

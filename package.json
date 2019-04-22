@@ -4,7 +4,7 @@
   "description": "Compiler implementation in node.js, just for teaching and learning purpose",
   "main": "src/index.js",
   "scripts": {
-    "test": "standard && mocha --require ts-node/register 'test/**/*.{ts,tsx}' > test.log",
+    "test": "mocha --require ts-node/register 'test/**/*.{ts,tsx}' > ",
     "compile": "tsc -p .",
     "cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- --timeout 100000",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
@@ -30,9 +30,12 @@
     "should": "^13.2.3",
     "standard": "*",
     "ts-node": "^8.0.3",
-    "typescript": "^3.4.3"
+    "typescript": "^3.4.3",
+    "@types/mocha": "^5.2.6"
   },
   "dependencies": {
-    "@types/mocha": "^5.2.6"
+    "@types/lodash": "^4.14.123",
+    "lodash": "^4.17.11",
+    "lodash-id": "^0.14.0"
   }
 }

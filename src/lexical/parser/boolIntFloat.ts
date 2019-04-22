@@ -97,10 +97,14 @@ export function parseBoolOrNumber(
         return byte[0];
       }
       // 如果当前不处于终止状态，则报错
-      else
-        throw new Error(
-          `${label} lexical error: ${String.fromCharCode(byte[0])}`
-        );
+      else {
+
+        return byte[0]
+        // throw new Error(
+        //   `${label} lexical error: ${String.fromCharCode(byte[0])}`
+        // );
+      }
+
     } else {
       nowValue += String.fromCharCode(byte[0]);
       state = newState;
@@ -108,19 +112,19 @@ export function parseBoolOrNumber(
   }
   if (Object.keys(accStatesAndResults).includes(state + '')) {
     // 文件结束处理
-  logger.success(`Accepted a ${accStatesAndResults[state]}`);
-  // 输出 token
-  if (
-    fs.writeSync(
-      tokenSequenceOutDescriptor,
-      `\n<${accStatesAndResults[state]}, ${nowValue}>\n`
-    ) <= 0
-  ) {
-    logger.error('Written token sequence failed');
-  }
-  symTable[accStatesAndResults[state]].indexOf(nowValue) === -1 &&
-    symTable[accStatesAndResults[state]].push(nowValue);
-  return;
+    logger.success(`Accepted a ${accStatesAndResults[state]}`);
+    // 输出 token
+    if (
+      fs.writeSync(
+        tokenSequenceOutDescriptor,
+        `\n<${accStatesAndResults[state]}, ${nowValue}>\n`
+      ) <= 0
+    ) {
+      logger.error('Written token sequence failed');
+    }
+    symTable[accStatesAndResults[state]].indexOf(nowValue) === -1 &&
+      symTable[accStatesAndResults[state]].push(nowValue);
+    return;
   } else {
     throw new Error(
       `${label} lexical error: unexpected terminal`

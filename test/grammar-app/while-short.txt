@@ -1,0 +1,6 @@
+S'：S
+S：D
+D：T，IDN，SIMI
+T：X，C
+X：INT
+C：

@@ -1,0 +1,1522 @@
+
+
+  real application
+Read grammar:
+productionsRaw = S'：S,S：D,D：T，IDN，SIMI,T：X，C,X：INT,C：
+pStr: S'：S
+pStr: S：D
+pStr: D：T，IDN，SIMI
+pStr: T：X，C
+pStr: X：INT
+pStr: C：
+{ grammar:
+   [ Production { left: 'S\'', rights: [Array], productionNumber: 0 },
+     Production { left: 'S', rights: [Array], productionNumber: 1 },
+     Production { left: 'D', rights: [Array], productionNumber: 2 },
+     Production { left: 'T', rights: [Array], productionNumber: 3 },
+     Production { left: 'X', rights: [Array], productionNumber: 4 },
+     Production { left: 'C', rights: [], productionNumber: 5 } ],
+  terminals: Set { 'IDN', 'SIMI', 'INT' },
+  nonTerminals: Set { 'S\'', 'S', 'D', 'T', 'X', 'C' } }
+=================
+正在处理 No 0: S' → [S]
+正在处理 No 1: S → [D]
+正在处理 No 2: D → [T,IDN,SIMI]
+正在处理 No 3: T → [X,C]
+正在处理 No 4: X → [INT]
+正在处理 No 5: C → []
+Adding epsilon to FIRST
+=================
+正在处理 No 0: S' → [S]
+正在处理 No 1: S → [D]
+正在处理 No 2: D → [T,IDN,SIMI]
+正在处理 No 3: T → [X,C]
+正在处理 No 4: X → [INT]
+正在处理 No 5: C → []
+Adding epsilon to FIRST
+=================
+正在处理 No 0: S' → [S]
+正在处理 No 1: S → [D]
+正在处理 No 2: D → [T,IDN,SIMI]
+正在处理 No 3: T → [X,C]
+正在处理 No 4: X → [INT]
+正在处理 No 5: C → []
+Adding epsilon to FIRST
+=================
+正在处理 No 0: S' → [S]
+正在处理 No 1: S → [D]
+正在处理 No 2: D → [T,IDN,SIMI]
+正在处理 No 3: T → [X,C]
+正在处理 No 4: X → [INT]
+正在处理 No 5: C → []
+Adding epsilon to FIRST
+=================
+正在处理 No 0: S' → [S]
+正在处理 No 1: S → [D]
+正在处理 No 2: D → [T,IDN,SIMI]
+正在处理 No 3: T → [X,C]
+正在处理 No 4: X → [INT]
+正在处理 No 5: C → []
+Adding epsilon to FIRST
+=================
+正在处理 No 0: S' → [S]
+正在处理 No 1: S → [D]
+正在处理 No 2: D → [T,IDN,SIMI]
+正在处理 No 3: T → [X,C]
+正在处理 No 4: X → [INT]
+正在处理 No 5: C → []
+Adding epsilon to FIRST
+计算得到的 FIRST 集如下：
+{ IDN: Set { 'IDN' },
+  SIMI: Set { 'SIMI' },
+  INT: Set { 'INT' },
+  'S\'': Set { 'INT' },
+  S: Set { 'INT' },
+  D: Set { 'INT' },
+  T: Set { 'INT' },
+  X: Set { 'INT' },
+  C: Set { 'epsilon' } }
+productionsRaw = S'：S,S：D,D：T，IDN，SIMI,T：X，C,X：INT,C：
+pStr: S'：S
+pStr: S：D
+pStr: D：T，IDN，SIMI
+pStr: T：X，C
+pStr: X：INT
+pStr: C：
+============== Begin getClosure ==============
+Initial Item:
+State = 0 
+No 0: S' →[.S], $
+
+No 0: S' →[.S], $
+No 1: S →[.D], $
+No 2: D →[.T,IDN,SIMI], $
+No 3: T →[.X,C], IDN
+No 0: S' →[.S], $
+No 1: S →[.D], $
+No 2: D →[.T,IDN,SIMI], $
+No 3: T →[.X,C], IDN
+============== End getClosure ==============
+new loop from getItems
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 1 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 1 
+No 0: S' →[S.], $
+
+============== End getClosure ==============
+====== End Goto function ===== 
+table.GOTO[0][S] = 1
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 2 
+No 1: S →[D.], $
+
+============== End getClosure ==============
+====== End Goto function ===== 
+table.GOTO[0][D] = 2
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 3 
+No 2: D →[T.IDN,SIMI], $
+
+============== End getClosure ==============
+====== End Goto function ===== 
+table.GOTO[0][T] = 3
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 4 
+No 3: T →[X.C], IDN
+
+No 3: T →[X.C], IDN
+No 3: T →[X.C], IDN
+============== End getClosure ==============
+====== End Goto function ===== 
+table.GOTO[0][X] = 4
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 5 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 5 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 5 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 5 
+No 4: X →[INT.], IDN
+
+============== End getClosure ==============
+====== End Goto function ===== 
+table.GOTO[0][INT] = 5
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 6 
+No 2: D →[T,IDN.SIMI], $
+
+============== End getClosure ==============
+====== End Goto function ===== 
+table.GOTO[3][IDN] = 6
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 7 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 7 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 7 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 7 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 7 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 7 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 7 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 7 
+No 3: T →[X,C.], IDN
+
+============== End getClosure ==============
+====== End Goto function ===== 
+table.GOTO[4][C] = 7
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 8 
+No 2: D →[T,IDN,SIMI.], $
+
+============== End getClosure ==============
+====== End Goto function ===== 
+table.GOTO[6][SIMI] = 8
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+new loop from getItems
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+No 0: S' →[S.], $
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+No 1: S →[D.], $
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+No 2: D →[T.IDN,SIMI], $
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+No 3: T →[X.C], IDN
+
+No 3: T →[X.C], IDN
+No 3: T →[X.C], IDN
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+No 4: X →[INT.], IDN
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+No 2: D →[T,IDN.SIMI], $
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+No 3: T →[X,C.], IDN
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+No 2: D →[T,IDN,SIMI.], $
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+====== Begin Goto function ===== 
+============== Begin getClosure ==============
+Initial Item:
+State = 9 
+
+============== End getClosure ==============
+====== End Goto function ===== 
+正在计算产生式 No 0: S' →[.S], $ 的可用 ACTION
+正在计算产生式 No 1: S →[.D], $ 的可用 ACTION
+正在计算产生式 No 2: D →[.T,IDN,SIMI], $ 的可用 ACTION
+正在计算产生式 No 3: T →[.X,C], IDN 的可用 ACTION
+正在计算产生式 No 4: X →[.INT], IDN 的可用 ACTION
+正在计算产生式 No 0: S' →[S.], $ 的可用 ACTION
+正在计算产生式 No 1: S →[D.], $ 的可用 ACTION
+this.ACTION[2][$] = 'r' + 1
+正在计算产生式 No 2: D →[T.IDN,SIMI], $ 的可用 ACTION
+正在计算产生式 No 3: T →[X.C], IDN 的可用 ACTION
+正在计算产生式 No 5: C →[.], IDN 的可用 ACTION
+this.ACTION[4][IDN] = 'r' + 5
+正在计算产生式 No 4: X →[INT.], IDN 的可用 ACTION
+this.ACTION[5][IDN] = 'r' + 4
+正在计算产生式 No 2: D →[T,IDN.SIMI], $ 的可用 ACTION
+正在计算产生式 No 3: T →[X,C.], IDN 的可用 ACTION
+this.ACTION[7][IDN] = 'r' + 3
+正在计算产生式 No 2: D →[T,IDN,SIMI.], $ 的可用 ACTION
+this.ACTION[8][$] = 'r' + 2
+Printing Analysis Table...
+{
+  "terminals": [
+    "IDN",
+    "SIMI",
+    "INT"
+  ],
+  "nonTerminals": [
+    "S'",
+    "S",
+    "D",
+    "T",
+    "X",
+    "C"
+  ],
+  "numOfSymbols": 9,
+  "GOTO": {
+    "0": {
+      "S": "1",
+      "D": "2",
+      "T": "3",
+      "X": "4"
+    },
+    "1": {},
+    "2": {},
+    "3": {},
+    "4": {
+      "C": "7"
+    },
+    "5": {},
+    "6": {},
+    "7": {},
+    "8": {}
+  },
+  "ACTION": {
+    "0": {
+      "INT": "s5"
+    },
+    "1": {
+      "$": "acc"
+    },
+    "2": {
+      "$": "r1"
+    },
+    "3": {
+      "IDN": "s6"
+    },
+    "4": {
+      "IDN": "r5"
+    },
+    "5": {
+      "IDN": "r4"
+    },
+    "6": {
+      "SIMI": "s8"
+    },
+    "7": {
+      "IDN": "r3"
+    },
+    "8": {
+      "$": "r2"
+    }
+  },
+  "numOfStates": 9
+}
+State    IDN     SIMI    INT     $        S'      S       D       T       X       C       
+0                        s5                       1       2       3       4               
+1                                acc                                                      
+2                                r1                                                       
+3        s6                                                                               
+4        r5                                                                       7       
+5        r4                                                                               
+6                s8                                                                       
+7        r3                                                                               
+8                                r2                                                       
+
+项目集族如下
+第 0 族
+State = 0 
+No 0: S' →[.S], $
+No 1: S →[.D], $
+No 2: D →[.T,IDN,SIMI], $
+No 3: T →[.X,C], IDN
+No 4: X →[.INT], IDN
+
+第 1 族
+State = 1 
+No 0: S' →[S.], $
+
+第 2 族
+State = 2 
+No 1: S →[D.], $
+
+第 3 族
+State = 3 
+No 2: D →[T.IDN,SIMI], $
+
+第 4 族
+State = 4 
+No 3: T →[X.C], IDN
+No 5: C →[.], IDN
+
+第 5 族
+State = 5 
+No 4: X →[INT.], IDN
+
+第 6 族
+State = 6 
+No 2: D →[T,IDN.SIMI], $
+
+第 7 族
+State = 7 
+No 3: T →[X,C.], IDN
+
+第 8 族
+State = 8 
+No 2: D →[T,IDN,SIMI.], $
+
+Printing Analysis Table...
+{
+  "terminals": [
+    "IDN",
+    "SIMI",
+    "INT"
+  ],
+  "nonTerminals": [
+    "S'",
+    "S",
+    "D",
+    "T",
+    "X",
+    "C"
+  ],
+  "numOfSymbols": 9,
+  "GOTO": {
+    "0": {
+      "S": "1",
+      "D": "2",
+      "T": "3",
+      "X": "4"
+    },
+    "1": {},
+    "2": {},
+    "3": {},
+    "4": {
+      "C": "7"
+    },
+    "5": {},
+    "6": {},
+    "7": {},
+    "8": {}
+  },
+  "ACTION": {
+    "0": {
+      "INT": "s5"
+    },
+    "1": {
+      "$": "acc"
+    },
+    "2": {
+      "$": "r1"
+    },
+    "3": {
+      "IDN": "s6"
+    },
+    "4": {
+      "IDN": "r5"
+    },
+    "5": {
+      "IDN": "r4"
+    },
+    "6": {
+      "SIMI": "s8"
+    },
+    "7": {
+      "IDN": "r3"
+    },
+    "8": {
+      "$": "r2"
+    }
+  },
+  "numOfStates": 0
+}
+State    IDN     SIMI    INT     $        S'      S       D       T       X       C       
+
+productionsRaw = S'：S,S：D,D：T，IDN，SIMI,T：X，C,X：INT,C：
+pStr: S'：S
+pStr: S：D
+pStr: D：T，IDN，SIMI
+pStr: T：X，C
+pStr: X：INT
+pStr: C：
+State stack: [0]                                   Symbol stack: [$]                                  Input left: [INT,IDN,SIMI,INT,IDN,SIMI,IDN,ASS,MINUS,LPAR,VAR_INT,ADD,IDN,MUL,VAR_INT,RPAR,SIMI,IDN,ASS,VAR_INT,SIMI,IF,LPAR,IDN,LT,IDN,RPAR,WHILE,LPAR,IDN,GT,RPAR,DO,IDN,ASS,IDN,MINUS,INT,SIMI,$]
+Processing state 0 input token INT
+ACTION[0][INT] = s5
+Shift INT and push 5 to state stack
+State stack: [0,5]                                 Symbol stack: [$,INT]                              Input left: [IDN,SIMI,INT,IDN,SIMI,IDN,ASS,MINUS,LPAR,VAR_INT,ADD,IDN,MUL,VAR_INT,RPAR,SIMI,IDN,ASS,VAR_INT,SIMI,IF,LPAR,IDN,LT,IDN,RPAR,WHILE,LPAR,IDN,GT,RPAR,DO,IDN,ASS,IDN,MINUS,INT,SIMI,$]
+Processing state 5 input token IDN
+ACTION[5][IDN] = r4
+Reduce using production: No 4: X → [INT]
+State stack: [0]                                   Symbol stack: [$,X]                                Input left: [IDN,SIMI,INT,IDN,SIMI,IDN,ASS,MINUS,LPAR,VAR_INT,ADD,IDN,MUL,VAR_INT,RPAR,SIMI,IDN,ASS,VAR_INT,SIMI,IF,LPAR,IDN,LT,IDN,RPAR,WHILE,LPAR,IDN,GT,RPAR,DO,IDN,ASS,IDN,MINUS,INT,SIMI,$]
+Goto state 4
+State stack: [0,4]                                 Symbol stack: [$,X]                                Input left: [IDN,SIMI,INT,IDN,SIMI,IDN,ASS,MINUS,LPAR,VAR_INT,ADD,IDN,MUL,VAR_INT,RPAR,SIMI,IDN,ASS,VAR_INT,SIMI,IF,LPAR,IDN,LT,IDN,RPAR,WHILE,LPAR,IDN,GT,RPAR,DO,IDN,ASS,IDN,MINUS,INT,SIMI,$]
+Processing state 4 input token IDN
+ACTION[4][IDN] = r5
+Reduce using production: No 5: C → []
+State stack: [0,4]                                 Symbol stack: [$,X,C]                              Input left: [IDN,SIMI,INT,IDN,SIMI,IDN,ASS,MINUS,LPAR,VAR_INT,ADD,IDN,MUL,VAR_INT,RPAR,SIMI,IDN,ASS,VAR_INT,SIMI,IF,LPAR,IDN,LT,IDN,RPAR,WHILE,LPAR,IDN,GT,RPAR,DO,IDN,ASS,IDN,MINUS,INT,SIMI,$]
+Goto state 7
+State stack: [0,4,7]                               Symbol stack: [$,X,C]                              Input left: [IDN,SIMI,INT,IDN,SIMI,IDN,ASS,MINUS,LPAR,VAR_INT,ADD,IDN,MUL,VAR_INT,RPAR,SIMI,IDN,ASS,VAR_INT,SIMI,IF,LPAR,IDN,LT,IDN,RPAR,WHILE,LPAR,IDN,GT,RPAR,DO,IDN,ASS,IDN,MINUS,INT,SIMI,$]
+Processing state 7 input token IDN
+ACTION[7][IDN] = r3
+Reduce using production: No 3: T → [X,C]
+State stack: [0]                                   Symbol stack: [$,T]                                Input left: [IDN,SIMI,INT,IDN,SIMI,IDN,ASS,MINUS,LPAR,VAR_INT,ADD,IDN,MUL,VAR_INT,RPAR,SIMI,IDN,ASS,VAR_INT,SIMI,IF,LPAR,IDN,LT,IDN,RPAR,WHILE,LPAR,IDN,GT,RPAR,DO,IDN,ASS,IDN,MINUS,INT,SIMI,$]
+Goto state 3
+State stack: [0,3]                                 Symbol stack: [$,T]                                Input left: [IDN,SIMI,INT,IDN,SIMI,IDN,ASS,MINUS,LPAR,VAR_INT,ADD,IDN,MUL,VAR_INT,RPAR,SIMI,IDN,ASS,VAR_INT,SIMI,IF,LPAR,IDN,LT,IDN,RPAR,WHILE,LPAR,IDN,GT,RPAR,DO,IDN,ASS,IDN,MINUS,INT,SIMI,$]
+Processing state 3 input token IDN
+ACTION[3][IDN] = s6
+Shift IDN and push 6 to state stack
+State stack: [0,3,6]                               Symbol stack: [$,T,IDN]                            Input left: [SIMI,INT,IDN,SIMI,IDN,ASS,MINUS,LPAR,VAR_INT,ADD,IDN,MUL,VAR_INT,RPAR,SIMI,IDN,ASS,VAR_INT,SIMI,IF,LPAR,IDN,LT,IDN,RPAR,WHILE,LPAR,IDN,GT,RPAR,DO,IDN,ASS,IDN,MINUS,INT,SIMI,$]
+Processing state 6 input token SIMI
+ACTION[6][SIMI] = s8
+Shift SIMI and push 8 to state stack
+State stack: [0,3,6,8]                             Symbol stack: [$,T,IDN,SIMI]                       Input left: [INT,IDN,SIMI,IDN,ASS,MINUS,LPAR,VAR_INT,ADD,IDN,MUL,VAR_INT,RPAR,SIMI,IDN,ASS,VAR_INT,SIMI,IF,LPAR,IDN,LT,IDN,RPAR,WHILE,LPAR,IDN,GT,RPAR,DO,IDN,ASS,IDN,MINUS,INT,SIMI,$]
+Processing state 8 input token INT
+ACTION[8][INT] = undefined
+    1) should round trip
+
+
+  0 passing (175ms)
+  1 failing
+
+  1) real application
+       should round trip:
+     Error: Grammar error at pos 3, no state to go: INT
+      at Object.doShiftReduce (src/grammar/index.ts:94:13)
+      at roundTrip (test/grammar.test.ts:46:13)
+      at Context.<anonymous> (test/grammar.test.ts:60:5)
+
+
+

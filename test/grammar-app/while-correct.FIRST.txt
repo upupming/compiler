@@ -1,0 +1,265 @@
+{
+  "terminals": [
+    "proc",
+    "IDN",
+    "SIMI",
+    "record",
+    "INT",
+    "FLOAT",
+    "BOOL",
+    "[",
+    "VAR_INT",
+    "]",
+    "ASS",
+    "ADD",
+    "MUL",
+    "MINUS",
+    "LPAR",
+    "RPAR",
+    "VAR_FLOAT",
+    "IF",
+    "then",
+    "if",
+    "ELSE",
+    "WHILE",
+    "DO",
+    "LOR",
+    "LAND",
+    "LNOT",
+    "TRUE",
+    "FALSE",
+    "LT",
+    "LE",
+    "EQL",
+    "NEQ",
+    "GT",
+    "GE",
+    "call",
+    ","
+  ],
+  "nonTerminals": [
+    "S'",
+    "S",
+    "Q",
+    "J",
+    "D",
+    "T",
+    "X",
+    "C",
+    "E",
+    "L",
+    "B",
+    "RELOP",
+    "ELIST"
+  ],
+  "FIRST": {
+    "proc": [
+      "proc"
+    ],
+    "IDN": [
+      "IDN"
+    ],
+    "SIMI": [
+      "SIMI"
+    ],
+    "record": [
+      "record"
+    ],
+    "INT": [
+      "INT"
+    ],
+    "FLOAT": [
+      "FLOAT"
+    ],
+    "BOOL": [
+      "BOOL"
+    ],
+    "[": [
+      "["
+    ],
+    "VAR_INT": [
+      "VAR_INT"
+    ],
+    "]": [
+      "]"
+    ],
+    "ASS": [
+      "ASS"
+    ],
+    "ADD": [
+      "ADD"
+    ],
+    "MUL": [
+      "MUL"
+    ],
+    "MINUS": [
+      "MINUS"
+    ],
+    "LPAR": [
+      "LPAR"
+    ],
+    "RPAR": [
+      "RPAR"
+    ],
+    "VAR_FLOAT": [
+      "VAR_FLOAT"
+    ],
+    "IF": [
+      "IF"
+    ],
+    "then": [
+      "then"
+    ],
+    "if": [
+      "if"
+    ],
+    "ELSE": [
+      "ELSE"
+    ],
+    "WHILE": [
+      "WHILE"
+    ],
+    "DO": [
+      "DO"
+    ],
+    "LOR": [
+      "LOR"
+    ],
+    "LAND": [
+      "LAND"
+    ],
+    "LNOT": [
+      "LNOT"
+    ],
+    "TRUE": [
+      "TRUE"
+    ],
+    "FALSE": [
+      "FALSE"
+    ],
+    "LT": [
+      "LT"
+    ],
+    "LE": [
+      "LE"
+    ],
+    "EQL": [
+      "EQL"
+    ],
+    "NEQ": [
+      "NEQ"
+    ],
+    "GT": [
+      "GT"
+    ],
+    "GE": [
+      "GE"
+    ],
+    "call": [
+      "call"
+    ],
+    ",": [
+      ","
+    ],
+    "S'": [
+      "proc",
+      "IDN",
+      "IF",
+      "if",
+      "WHILE",
+      "call",
+      "record",
+      "INT",
+      "FLOAT",
+      "BOOL"
+    ],
+    "S": [
+      "proc",
+      "IDN",
+      "IF",
+      "if",
+      "WHILE",
+      "call",
+      "record",
+      "INT",
+      "FLOAT",
+      "BOOL"
+    ],
+    "Q": [
+      "proc",
+      "IDN",
+      "IF",
+      "if",
+      "WHILE",
+      "call",
+      "record",
+      "INT",
+      "FLOAT",
+      "BOOL"
+    ],
+    "J": [
+      "IDN",
+      "IF",
+      "if",
+      "WHILE",
+      "call"
+    ],
+    "D": [
+      "proc",
+      "record",
+      "INT",
+      "FLOAT",
+      "BOOL"
+    ],
+    "T": [
+      "record",
+      "INT",
+      "FLOAT",
+      "BOOL"
+    ],
+    "X": [
+      "INT",
+      "FLOAT",
+      "BOOL"
+    ],
+    "C": [
+      "[",
+      "epsilon"
+    ],
+    "E": [
+      "MINUS",
+      "LPAR",
+      "IDN",
+      "VAR_INT",
+      "VAR_FLOAT"
+    ],
+    "L": [
+      "IDN"
+    ],
+    "B": [
+      "LNOT",
+      "LPAR",
+      "MINUS",
+      "IDN",
+      "VAR_INT",
+      "VAR_FLOAT",
+      "TRUE",
+      "FALSE"
+    ],
+    "RELOP": [
+      "LT",
+      "LE",
+      "EQL",
+      "NEQ",
+      "GT",
+      "GE"
+    ],
+    "ELIST": [
+      "MINUS",
+      "LPAR",
+      "IDN",
+      "VAR_INT",
+      "VAR_FLOAT"
+    ]
+  }
+}

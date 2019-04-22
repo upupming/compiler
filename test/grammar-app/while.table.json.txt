@@ -1,0 +1,10 @@
+State    IDN     SIMI    INT     $        S'      S       D       T       X       C       
+0                        s5                       1       2       3       4               
+1                                acc                                                      
+2                                r1                                                       
+3        s6                                                                               
+4        r5                                                                       7       
+5        r4                                                                               
+6                s8                                                                       
+7        r3                                                                               
+8                                r2                                                       

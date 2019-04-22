@@ -1,0 +1,265 @@
+{
+  "terminals": [
+    "proc",
+    "id",
+    ";",
+    "record",
+    "int",
+    "float",
+    "bool",
+    "[",
+    "num",
+    "]",
+    "",
+    "=",
+    "+",
+    "*",
+    "-",
+    "(",
+    ")",
+    "consti",
+    "constf",
+    "if",
+    "then",
+    "else",
+    "while",
+    "do",
+    "or",
+    "and",
+    "not",
+    "true",
+    "false",
+    "<",
+    "<=",
+    "==",
+    "!=",
+    ">",
+    ">=",
+    "call",
+    ","
+  ],
+  "nonTerminals": [
+    "S'",
+    "S",
+    "Q",
+    "J",
+    "D",
+    "T",
+    "X",
+    "C",
+    "E",
+    "L",
+    "B",
+    "RELOP",
+    "ELIST"
+  ],
+  "FIRST": {
+    "proc": [
+      "proc"
+    ],
+    "id": [
+      "id"
+    ],
+    ";": [
+      ";"
+    ],
+    "record": [
+      "record"
+    ],
+    "int": [
+      "int"
+    ],
+    "float": [
+      "float"
+    ],
+    "bool": [
+      "bool"
+    ],
+    "[": [
+      "["
+    ],
+    "num": [
+      "num"
+    ],
+    "]": [
+      "]"
+    ],
+    "": [
+      ""
+    ],
+    "=": [
+      "="
+    ],
+    "+": [
+      "+"
+    ],
+    "*": [
+      "*"
+    ],
+    "-": [
+      "-"
+    ],
+    "(": [
+      "("
+    ],
+    ")": [
+      ")"
+    ],
+    "consti": [
+      "consti"
+    ],
+    "constf": [
+      "constf"
+    ],
+    "if": [
+      "if"
+    ],
+    "then": [
+      "then"
+    ],
+    "else": [
+      "else"
+    ],
+    "while": [
+      "while"
+    ],
+    "do": [
+      "do"
+    ],
+    "or": [
+      "or"
+    ],
+    "and": [
+      "and"
+    ],
+    "not": [
+      "not"
+    ],
+    "true": [
+      "true"
+    ],
+    "false": [
+      "false"
+    ],
+    "<": [
+      "<"
+    ],
+    "<=": [
+      "<="
+    ],
+    "==": [
+      "=="
+    ],
+    "!=": [
+      "!="
+    ],
+    ">": [
+      ">"
+    ],
+    ">=": [
+      ">="
+    ],
+    "call": [
+      "call"
+    ],
+    ",": [
+      ","
+    ],
+    "S'": [
+      "proc",
+      "id",
+      "if",
+      "while",
+      "call",
+      "record",
+      "int",
+      "float",
+      "bool"
+    ],
+    "S": [
+      "proc",
+      "id",
+      "if",
+      "while",
+      "call",
+      "record",
+      "int",
+      "float",
+      "bool"
+    ],
+    "Q": [
+      "proc",
+      "id",
+      "if",
+      "while",
+      "call",
+      "record",
+      "int",
+      "float",
+      "bool"
+    ],
+    "J": [
+      "id",
+      "if",
+      "while",
+      "call"
+    ],
+    "D": [
+      "proc",
+      "record",
+      "int",
+      "float",
+      "bool"
+    ],
+    "T": [
+      "record",
+      "int",
+      "float",
+      "bool"
+    ],
+    "X": [
+      "int",
+      "float",
+      "bool"
+    ],
+    "C": [
+      "[",
+      ""
+    ],
+    "E": [
+      "-",
+      "(",
+      "id",
+      "consti",
+      "constf"
+    ],
+    "L": [
+      "id"
+    ],
+    "B": [
+      "not",
+      "(",
+      "-",
+      "id",
+      "consti",
+      "constf",
+      "true",
+      "false"
+    ],
+    "RELOP": [
+      "<",
+      "<=",
+      "==",
+      "!=",
+      ">",
+      ">="
+    ],
+    "ELIST": [
+      "-",
+      "(",
+      "id",
+      "consti",
+      "constf"
+    ]
+  }
+}
