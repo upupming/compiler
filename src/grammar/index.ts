@@ -1,7 +1,7 @@
 import { readFileSync, openSync, readSync, read, writeFileSync, stat } from "fs";
 import * as assert from 'assert'
 import * as _ from 'lodash'
-import { Item, LRProduction, FIRSTSetObject, FIRSTArrayObject, LRTable, Production, GrammarAll } from "./types";
+import { Item, LRProduction, FIRSTSetObject, FIRSTArrayObject, LRTable, Production, GrammarAll, GrammarTreeNode } from "./types";
 
 /**
  * 从文件读取文法，转为数据结构
@@ -11,9 +11,9 @@ import { Item, LRProduction, FIRSTSetObject, FIRSTArrayObject, LRTable, Producti
 function getGrammar(grammarPath: string): GrammarAll {
   let fileContent = readFileSync(grammarPath, 'utf-8')
   let productionsRaw = (fileContent.trim().split(/\r?\n/))
-  console.log(`productionsRaw = ${productionsRaw}`)
+  // console.log(`productionsRaw = ${productionsRaw}`)
   let grammar: Production[] = productionsRaw.map(pStr => {
-    console.log(`pStr: ${pStr}`)
+    // console.log(`pStr: ${pStr}`)
     let left = pStr.slice(0, pStr.indexOf('：') - pStr.length)
     let rights = pStr.slice(pStr.indexOf('：') + 1).split('，')
     if (_.isEqual(rights, [''])) {
@@ -54,7 +54,7 @@ function printItem(tag: string, item: Item) {
   console.log(item.toString())
 }
 
-function doShiftReduce(tablePath: string, codePath: string, grammarPath: string) {
+function doShiftReduce(tablePath: string, codePath: string, grammarPath: string): GrammarTreeNode|undefined {
   // console.log(`Reading table before parsing...`)
   let tableRaw = JSON.parse(readFileSync(tablePath, 'utf-8'))
   let table = LRTable.fromRaw(tableRaw)
@@ -67,12 +67,20 @@ function doShiftReduce(tablePath: string, codePath: string, grammarPath: string)
 
   let stateStack = ['0']
   let symbolStack = ['$']
+  let nodeStack = []
 
   let sourceCode = readFileSync(codePath, 'utf-8')
   // console.log(`Source code
   //   ${sourceCode}`)
-  let inputTokens: string[] = sourceCode.split(/\s+/)
+  let regex = /<(.*), (.*)>/g
+  let matches: RegExpExecArray|null
+  let inputTokens: string[] = [], inputValues = []
+  while (matches = regex.exec(sourceCode)) {
+    inputTokens.push(matches[1]);
+    inputValues.push(matches[2]);
+  }
   inputTokens.push('$')
+  inputValues.push('null')
   let pos = 0
   while (true) {
 
@@ -86,6 +94,7 @@ function doShiftReduce(tablePath: string, codePath: string, grammarPath: string)
 
     let state = stateStack[stateStack.length - 1]
     let token: string = inputTokens[pos]
+    let value: string = inputValues[pos]
 
     console.log(`Processing state ${state} input token ${token}`)
     let action = table.ACTION[state][token]
@@ -96,24 +105,42 @@ function doShiftReduce(tablePath: string, codePath: string, grammarPath: string)
     // acc
     if (action == 'acc') {
       console.log(`Congratulations, the grammar is okay!`)
-      break
+      // 必然只有最终一个父结点，就是文法的开始符号
+      assert(nodeStack.length == 1)
+      let root = new GrammarTreeNode("S'", 'null', [nodeStack.pop() as GrammarTreeNode], 0)
+      return root
     }
     // Shift
     if (action[0] == 's') {
       console.log(`Shift ${token} and push ${action.slice(1)} to state stack`)
       stateStack.push(action.slice(1))
       symbolStack.push(token)
+      
+      // 终结符移入时，创建新的语法树结点
+      let node = new GrammarTreeNode(token, value, [], -1)
+      nodeStack.push(node)
       pos++
     }
+    let tempStack: GrammarTreeNode[] = []
     // Reduce
     if (action[0] == 'r') {
       let reduceProduction = grammar[parseInt(action.slice(1))]
+      // 规约时，新建父节点
+      let parentNode = new GrammarTreeNode(reduceProduction.left, 'null', [], reduceProduction.productionNumber)
       for (let i = 0; i < reduceProduction.rights.length; i++) {
         stateStack.pop()
         let temp = symbolStack.pop()
         assert.deepEqual(temp, reduceProduction.rights[reduceProduction.rights.length - 1 - i])
+      
+        // 父节点指向所有子节点
+        let tempNode = nodeStack.pop() as GrammarTreeNode
+        assert.deepEqual(tempNode.token, temp)
+        tempStack.push(tempNode)
       }
+      parentNode.children.push(...tempStack.reverse())
       symbolStack.push(reduceProduction.left)
+      // 压入父节点
+      nodeStack.push(parentNode)
       console.log(`Reduce using production: ${reduceProduction.toString()}`)
       print()
       // GOTO

@@ -4,7 +4,7 @@
   "description": "Compiler implementation in node.js, just for teaching and learning purpose",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha --require ts-node/register 'test/**/*.{ts,tsx}' > ",
+    "test": "mocha --require ts-node/register 'test/**/*.{ts,tsx}' --timeout 10000000",
     "compile": "tsc -p .",
     "cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- --timeout 100000",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/upupming/compiler#readme",
   "devDependencies": {
+    "@types/mocha": "^5.2.6",
     "@types/node": "^11.13.4",
     "coveralls": "^3.0.3",
     "istanbul": "^0.4.5",
@@ -30,12 +31,12 @@
     "should": "^13.2.3",
     "standard": "*",
     "ts-node": "^8.0.3",
-    "typescript": "^3.4.3",
-    "@types/mocha": "^5.2.6"
+    "typescript": "^3.4.3"
   },
   "dependencies": {
     "@types/lodash": "^4.14.123",
     "lodash": "^4.17.11",
-    "lodash-id": "^0.14.0"
+    "lodash-id": "^0.14.0",
+    "print-tree": "^0.1.5"
   }
 }

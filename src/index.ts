@@ -26,8 +26,25 @@
 
 // console.log(_.isEqual(a, b))
 
-let a = {
-    1: 's',
-    '1': 'dd'
-}
+// let a = {
+//     1: 's',
+//     '1': 'dd'
+// }
 
+
+let a = [
+    {
+        width: 0,
+        height: 1
+    },
+    {
+        width: 2,
+        height: 3
+    },
+]
+
+let b = a[0]
+
+b.width = 3
+
+console.log(a)

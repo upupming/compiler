@@ -1,0 +1,9 @@
+<FLOAT, null>
+<IDN, a>
+<SIMI, null>
+<FLOAT, null>
+<IDN, b>
+<SIMI, null>
+<FLOAT, null>
+<IDN, b>
+<SIMI, null>

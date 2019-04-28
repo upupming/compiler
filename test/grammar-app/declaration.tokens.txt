@@ -1,1 +1,3 @@
-FLOAT IDN , IDN
+<FLOAT, null>
+<IDN, a>
+<SIMI, null>

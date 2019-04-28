@@ -1,0 +1,65 @@
+{
+  "terminals": [
+    "IDN",
+    "SIMI",
+    "INT",
+    "FLOAT",
+    "LBRA",
+    "VAR_INT",
+    "RBRA"
+  ],
+  "nonTerminals": [
+    "S'",
+    "S",
+    "D",
+    "T",
+    "B",
+    "C"
+  ],
+  "FIRST": {
+    "IDN": [
+      "IDN"
+    ],
+    "SIMI": [
+      "SIMI"
+    ],
+    "INT": [
+      "INT"
+    ],
+    "FLOAT": [
+      "FLOAT"
+    ],
+    "LBRA": [
+      "LBRA"
+    ],
+    "VAR_INT": [
+      "VAR_INT"
+    ],
+    "RBRA": [
+      "RBRA"
+    ],
+    "S'": [
+      "INT",
+      "FLOAT"
+    ],
+    "S": [
+      "INT",
+      "FLOAT"
+    ],
+    "D": [
+      "epsilon"
+    ],
+    "T": [
+      "INT",
+      "FLOAT"
+    ],
+    "B": [
+      "INT",
+      "FLOAT"
+    ],
+    "C": [
+      "epsilon",
+      "LBRA"
+    ]
+  }
+}

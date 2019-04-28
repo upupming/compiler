@@ -289,5 +289,33 @@ export class GrammarAll {
     let res = `grammar = ${this.grammar.toString()}
         terminals = ${[...this.terminals].toString()}
         nonTerminals = ${[...this.nonTerminals].toString()}`
+    return res
+  }
+}
+
+export class GrammarTreeNode {
+  private static currentNodeNumber = 0
+  children: GrammarTreeNode[] = []
+  token: string
+  value: string|number
+  productionNumber: number
+  nodeNumber: number
+
+  /**
+   * 
+   * @param token 
+   * @param children 
+   * @param productionNumber 存放语法产生式编号，-1 表示
+   * 这是一个叶子结点，也就没有相应的产生式
+   */
+  constructor(token: string, value: string|number, children: GrammarTreeNode[], productionNumber: number) {
+    this.token = token
+    this.value = value
+    this.children = children;
+    this.productionNumber = productionNumber
+    this.nodeNumber = GrammarTreeNode.currentNodeNumber++
+  }
+  toString() {
+    return `No.${this.nodeNumber}. ${this.token}@${this.productionNumber}${this.productionNumber == -1 ? '%' + this.value : ''}`
   }
 }

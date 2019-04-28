@@ -1,0 +1,15 @@
+State    IDN     SIMI    INT     FLOAT   LBRA    VAR_INT RBRA    $        S'      S       D       T       B       C       
+0                        s4      s5                                               1               2       3               
+1                                                                acc                                                      
+2        s6                                                                                                               
+3        r6                              s8                                                                       7       
+4        r4                              r4                                                                               
+5        r5                              r5                                                                               
+6                s9                                                                                                       
+7        r3                                                                                                               
+8                                                s10                                                                      
+9                                                                r2                       11                              
+10                                                       s12                                                              
+11                                                               r1                                                       
+12       r6                              s8                                                                       13      
+13       r7                                                                                                               

@@ -27,8 +27,8 @@ E：VAR_FLOAT
 E：L
 L：IDN，[，E，]
 L：L，[，E，]
-J：IF，B，then，J
-J：if，B，then，J，ELSE，J
+J：IF，B，THEN，J
+J：if，B，THEN，J，ELSE，J
 J：WHILE，B，do，J
 B：B，LOR，B
 B：B，LAND，B

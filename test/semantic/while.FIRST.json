@@ -1,0 +1,90 @@
+{
+  "terminals": [
+    "IDN",
+    "ADD",
+    "MINUS",
+    "IF",
+    "THEN",
+    "ELSE",
+    "WHILE",
+    "DO",
+    "ASS",
+    "SIMI",
+    "LNOT",
+    "LPAR",
+    "RPAR",
+    "LT"
+  ],
+  "nonTerminals": [
+    "S'",
+    "E",
+    "S",
+    "B",
+    "RELOP"
+  ],
+  "FIRST": {
+    "IDN": [
+      "IDN"
+    ],
+    "ADD": [
+      "ADD"
+    ],
+    "MINUS": [
+      "MINUS"
+    ],
+    "IF": [
+      "IF"
+    ],
+    "THEN": [
+      "THEN"
+    ],
+    "ELSE": [
+      "ELSE"
+    ],
+    "WHILE": [
+      "WHILE"
+    ],
+    "DO": [
+      "DO"
+    ],
+    "ASS": [
+      "ASS"
+    ],
+    "SIMI": [
+      "SIMI"
+    ],
+    "LNOT": [
+      "LNOT"
+    ],
+    "LPAR": [
+      "LPAR"
+    ],
+    "RPAR": [
+      "RPAR"
+    ],
+    "LT": [
+      "LT"
+    ],
+    "S'": [
+      "IF",
+      "WHILE",
+      "IDN"
+    ],
+    "E": [
+      "IDN"
+    ],
+    "S": [
+      "IF",
+      "WHILE",
+      "IDN"
+    ],
+    "B": [
+      "LNOT",
+      "LPAR",
+      "IDN"
+    ],
+    "RELOP": [
+      "LT"
+    ]
+  }
+}

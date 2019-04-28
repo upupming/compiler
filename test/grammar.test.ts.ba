@@ -1,7 +1,6 @@
 import * as grammar from '../src/grammar/index'
 import 'should'
 import * as path from 'path'
-import { parseFile } from '../src/lexical';
 
 
 describe('working on grammar components', function () {
@@ -41,8 +40,8 @@ describe('real application', function () {
     const tablePath = path.resolve(dirname, grammarBasename + '.table.json')
     const codePath = path.resolve(dirname, grammarBasename + '.tokens.txt')
 
-    grammar.calFIRST(grammarPath, FIRSTPath)
-    grammar.calTable(grammarPath, FIRSTPath, tablePath)
+    // grammar.calFIRST(grammarPath, FIRSTPath)
+    // grammar.calTable(grammarPath, FIRSTPath, tablePath)
     grammar.doShiftReduce(tablePath, codePath, grammarPath)
   }
 
@@ -51,7 +50,7 @@ describe('real application', function () {
     const sourceBasename = path.basename(sourcePath, '.c')
     const symTablePath = path.resolve(dirname, sourceBasename + '.symTable.txt')
     const tokenSeqPath = path.resolve(dirname, sourceBasename + '.tokens.txt')
-    parseFile(sourcePath, symTablePath, tokenSeqPath)
+    // parseFile(sourcePath, symTablePath, tokenSeqPath)
     return tokenSeqPath
   }
 
