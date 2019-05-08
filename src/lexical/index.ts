@@ -9,36 +9,36 @@ import { parseKeyword } from './parser/keyword';
 import { parseIdentifier } from './parser/identifier';
 
 function parse (sourceFileDescriptor: number, symTableOutDescriptor: number, tokenSequenceOutDescriptor: number) {
+  // 当前对源代码文件读取所处的位置
+  let currentPosition = 0
+  
   let symTable = emptySymTable
   // console.log(symTable)
 
   let byte = Buffer.alloc(1)
   // Read all bytes until 0 byte read
-  while (byte[0] || fs.readSync(sourceFileDescriptor, byte, 0, 1, null)) {
-    logger.info(`top level byte read: ${byte.toString()}`)
-    fs.writeSync(tokenSequenceOutDescriptor, byte)
+  // 每次读入一个新的字符之后，更新文件位置索引
+  while (fs.readSync(sourceFileDescriptor, byte, 0, 1, currentPosition++) > 0) {
+    logger.info(`top level byte read: ${byte.toString()}: ${byte[0]}, currentPosition = ${currentPosition}`)
+    // fs.writeSync(tokenSequenceOutDescriptor, byte)
     let byteString = byte.toString()
-    // 置空 byte，接受后续来的变化，用于外部循环判定
-    let nowByte = byte
-    byte = Buffer.alloc(1)
     switch (byteString) {
       case '/':
-        byte[0] = parseCommentOrDIV(sourceFileDescriptor, symTableOutDescriptor, tokenSequenceOutDescriptor, symTable)
+        // 比如现在已经读取到的是 /，那么把下一个位置传过去
+        currentPosition = parseCommentOrDIV(sourceFileDescriptor, symTableOutDescriptor, tokenSequenceOutDescriptor, symTable, currentPosition)
         break
       case "'":
-        parseChar(sourceFileDescriptor, symTableOutDescriptor, tokenSequenceOutDescriptor, symTable)
+        // 比如现在已经读取到的是 '，那么把下一个位置传过去
+        currentPosition = parseChar(sourceFileDescriptor, symTableOutDescriptor, tokenSequenceOutDescriptor, symTable, currentPosition)
         break
       case '"':
-        parseString(sourceFileDescriptor, symTableOutDescriptor, tokenSequenceOutDescriptor, symTable)
+        // 比如现在已经读取到的是 "，那么把下一个位置传过去
+        currentPosition = parseString(sourceFileDescriptor, symTableOutDescriptor, tokenSequenceOutDescriptor, symTable, currentPosition)
         break
       case '0':
       case '1':
-        byte[0] = parseBoolOrNumber(sourceFileDescriptor, symTableOutDescriptor, tokenSequenceOutDescriptor, symTable, 1, byteString)
-        break
       case '+':
       case '-':
-        byte[0] = parseBoolOrNumber(sourceFileDescriptor, symTableOutDescriptor, tokenSequenceOutDescriptor, symTable, 2, byteString)
-        break
       case '2':
       case '3':
       case '4':
@@ -47,20 +47,27 @@ function parse (sourceFileDescriptor: number, symTableOutDescriptor: number, tok
       case '7':
       case '8':
       case '9':
-        byte[0] = parseBoolOrNumber(sourceFileDescriptor, symTableOutDescriptor, tokenSequenceOutDescriptor, symTable, 3, byteString)
+        // 比如现在已经读取到的是 0, 1，那么把这个位置传过去
+        currentPosition = parseBoolOrNumber(sourceFileDescriptor, symTableOutDescriptor, tokenSequenceOutDescriptor, symTable, currentPosition-1) + 1
         break
       default:
-        if(isChar(TypesOfChar.whites, nowByte[0])) {
-          logger.info(`Ignored white character (ASCII): ${nowByte[0]}`)
+        if(isChar(TypesOfChar.whites, byte[0])) {
+          logger.info(`Ignored white character (ASCII): ${byte[0]}`)
         }
         // 关键字
         else {
-          byte[0] = parseKeyword(sourceFileDescriptor, symTableOutDescriptor, tokenSequenceOutDescriptor, symTable, nowByte[0])
-          if(isChar(TypesOfChar.whites, byte[0])) {
-            logger.info(`Ignored white character (ASCII): ${byte[0]}`)
-          } else {
+          logger.info(`Trying to parse ${byte} as keyword...`)
+          // 从当前读到字符的位置开始，识别 keyword
+          let success = false;
+          [success, currentPosition] = parseKeyword(sourceFileDescriptor, symTableOutDescriptor, tokenSequenceOutDescriptor, symTable, currentPosition-1)
+          if (!success) {
+            currentPosition += 1
+            logger.info(`Trying to parse ${byte.toString()} as identifier...`);
             // 构造不出关键字时，构造标识符
-            byte[0] = parseIdentifier(sourceFileDescriptor, symTableOutDescriptor, tokenSequenceOutDescriptor, symTable, byte[0])
+            [success, currentPosition] = parseIdentifier(sourceFileDescriptor, symTableOutDescriptor, tokenSequenceOutDescriptor, symTable, currentPosition-1)
+            if (!success) {
+              currentPosition += 1
+            }
           }
         }
     }

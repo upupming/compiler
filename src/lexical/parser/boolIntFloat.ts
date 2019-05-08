@@ -6,15 +6,16 @@ export function parseBoolOrNumber(
   symTableOutDescriptor: number,
   tokenSequenceOutDescriptor: number,
   symTable,
-  nowState,
-  nowValue
+  currentPosition
 ): number {
-  let state = nowState;
-  let value = nowValue;
+  let state = 0;
+  let nowValue = ''
   const accStatesAndResults = {
     1: 'VAR_BOOL',
     3: 'VAR_INT',
     5: 'VAR_FLOAT',
+    21: 'ADD',
+    22: 'MINUS',
     8: 'VAR_FLOAT'
   };
   const label = 'BOOL/VAR_INT/VAR_FLOAT';
@@ -25,13 +26,24 @@ export function parseBoolOrNumber(
    */
   function getNextState(currentState: number, input: number): number {
     switch (currentState) {
+      case 0:
+        if (isChar(TypesOfChar.bool, input)) {
+          return 1;
+        } if (isChar(TypesOfChar.add, input)) {
+          return 21;
+        } else if (isChar(TypesOfChar.minus, input)) {
+          return 22;
+        } else if (isChar(TypesOfChar.digit, input)) {
+          return 3;
+        }
       case 1:
         if (isChar(TypesOfChar.digit, input)) {
           return 3;
         } else if (isChar(TypesOfChar.dot, input)) {
           return 4;
         }
-      case 2:
+      case 21:
+      case 22:
         if (isChar(TypesOfChar.digit, input)) {
           return 3;
         }
@@ -70,8 +82,8 @@ export function parseBoolOrNumber(
     }
   }
   let byte = Buffer.alloc(1);
-  while (fs.readSync(sourceFileDescriptor, byte, 0, 1, null)) {
-    fs.writeSync(tokenSequenceOutDescriptor, byte);
+  while (fs.readSync(sourceFileDescriptor, byte, 0, 1, currentPosition++) > 0) {
+    // fs.writeSync(tokenSequenceOutDescriptor, byte);
 
     let newState = getNextState(state, byte[0]);
     logger.info(
@@ -79,13 +91,27 @@ export function parseBoolOrNumber(
     );
     // 当无法接收下一个字符，并且对当前处于终止状态时，进行接收
     if (newState == -1) {
-      if (Object.keys(accStatesAndResults).includes(state + '')) {
+      if (state == 21 || state == 22) {
         logger.success(`Accepted a ${accStatesAndResults[state]}`);
         // 输出 token
         if (
           fs.writeSync(
             tokenSequenceOutDescriptor,
-            `\n<${accStatesAndResults[state]}, ${nowValue}>\n`
+            `<${accStatesAndResults[state]}, null>\n`
+          ) <= 0
+        ) {
+          logger.error('Written token sequence failed');
+        }
+        // 但是这里多读了一个字符，我们将其用返回值还给 caller
+        return currentPosition-1;
+      }
+      else if (Object.keys(accStatesAndResults).includes(state + '')) {
+        logger.success(`Accepted a ${accStatesAndResults[state]}`);
+        // 输出 token
+        if (
+          fs.writeSync(
+            tokenSequenceOutDescriptor,
+            `<${accStatesAndResults[state]}, ${nowValue}>\n`
           ) <= 0
         ) {
           logger.error('Written token sequence failed');
@@ -94,12 +120,12 @@ export function parseBoolOrNumber(
         symTable[accStatesAndResults[state]].indexOf(nowValue) === -1 &&
           symTable[accStatesAndResults[state]].push(nowValue);
         // 但是这里多读了一个字符，我们将其用返回值还给 caller
-        return byte[0];
+        return currentPosition-1;
       }
       // 如果当前不处于终止状态，则报错
       else {
 
-        return byte[0]
+        return currentPosition-1;
         // throw new Error(
         //   `${label} lexical error: ${String.fromCharCode(byte[0])}`
         // );
@@ -117,14 +143,14 @@ export function parseBoolOrNumber(
     if (
       fs.writeSync(
         tokenSequenceOutDescriptor,
-        `\n<${accStatesAndResults[state]}, ${nowValue}>\n`
+        `<${accStatesAndResults[state]}, ${nowValue}>\n`
       ) <= 0
     ) {
       logger.error('Written token sequence failed');
     }
     symTable[accStatesAndResults[state]].indexOf(nowValue) === -1 &&
       symTable[accStatesAndResults[state]].push(nowValue);
-    return;
+    return currentPosition;
   } else {
     throw new Error(
       `${label} lexical error: unexpected terminal`

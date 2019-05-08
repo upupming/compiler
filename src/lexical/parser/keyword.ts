@@ -1,11 +1,11 @@
 import { logger } from "../../utils";
 import * as fs from 'fs'
 
-export function parseKeyword(sourceFileDescriptor: number, symTableOutDescriptor: number, tokenSequenceOutDescriptor: number, symTable, nowValue: number) {
-  let state = getNextState(1, nowValue)
-  if (state == -1) {
-    return nowValue
-  }
+export function parseKeyword(sourceFileDescriptor: number, symTableOutDescriptor: number, tokenSequenceOutDescriptor: number, symTable, currentPosition): [boolean, number] {
+  // 如果无法识别成 keyword，要从这个值恢复读取位置
+  let beginPosition = currentPosition
+
+  let state = 1
   logger.info(`current state: ${state}`)
   const accStatesAndResults = {
     2: 'LNOT',
@@ -38,6 +38,7 @@ export function parseKeyword(sourceFileDescriptor: number, symTableOutDescriptor
     321: 'INT',
     344: 'STRUCT',
     354: 'SWITCH',
+    1036: 'THEN',
     363: 'VOID',
     374: 'WHILE',
     38: 'BOR',
@@ -97,6 +98,8 @@ export function parseKeyword(sourceFileDescriptor: number, symTableOutDescriptor
             return 30
           case 's':
             return 33
+          case 't':
+            return 1033
           case 'v':
             return 36
           case 'w':
@@ -121,6 +124,18 @@ export function parseKeyword(sourceFileDescriptor: number, symTableOutDescriptor
             return 47
           default:
             return -1
+        }
+      case 1033:
+        if (String.fromCharCode(input) == 'h') {
+          return 1034
+        }
+      case 1034:
+        if (String.fromCharCode(input) == 'e') {
+          return 1035
+        }
+      case 1035:
+        if (String.fromCharCode(input) == 'n') {
+          return 1036
         }
       case 2:
         if (String.fromCharCode(input) == '=') {
@@ -336,8 +351,8 @@ export function parseKeyword(sourceFileDescriptor: number, symTableOutDescriptor
     }
   }
   let byte = Buffer.alloc(1)
-  while (fs.readSync(sourceFileDescriptor, byte, 0, 1, null)) {
-    fs.writeSync(tokenSequenceOutDescriptor, byte)
+  while (fs.readSync(sourceFileDescriptor, byte, 0, 1, currentPosition++) > 0) {
+    // fs.writeSync(tokenSequenceOutDescriptor, byte)
 
     let newState = getNextState(state, byte[0])
     logger.info(`${label} state: ${state}, byte read: ${byte.toString()}, new state: ${newState}`)
@@ -348,17 +363,18 @@ export function parseKeyword(sourceFileDescriptor: number, symTableOutDescriptor
         // 输出 token
         if (fs.writeSync(
           tokenSequenceOutDescriptor,
-          `\n<${accStatesAndResults[state]}, ${symTable[accStatesAndResults[state]]}>\n`
+          `<${accStatesAndResults[state]}, ${symTable[accStatesAndResults[state]]}>\n`
         ) <= 0) {
           logger.error('Written token sequence failed')
         }
         // 但是这里多读了一个字符，我们将其用返回值还给 caller
-        return byte[0]
+        return [true, currentPosition - 1]
       }
       // // 如果当前不处于终止状态，则报错
       // else throw new Error(`${label} lexical error: ${String.fromCharCode(byte[0])}`)
       else {
-        return byte[0]
+        logger.info(`无法识别成 keyword，转而识别成 idn`)
+        return [false, beginPosition]
       }
     } else {
       state = newState
@@ -370,11 +386,11 @@ export function parseKeyword(sourceFileDescriptor: number, symTableOutDescriptor
     // 输出 token
     if (fs.writeSync(
       tokenSequenceOutDescriptor,
-      `\n<${accStatesAndResults[state]}, ${symTable[accStatesAndResults[state]]}>\n`
+      `<${accStatesAndResults[state]}, ${symTable[accStatesAndResults[state]]}>\n`
     ) <= 0) {
       logger.error('Written token sequence failed')
     }
-    return
+    return currentPosition
   } else {
     throw new Error(`${label} lexical error: unexpected terminal`)
   }

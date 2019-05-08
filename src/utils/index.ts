@@ -26,7 +26,9 @@ enum TypesOfChar {
     whites,
 		digit,
 		dot,
-		E,
+    E,
+    add,
+    minus,
 		add_minus,
 		letter,
 		letter_
@@ -63,8 +65,12 @@ function isChar(what: TypesOfChar, char: number) {
 				return charString == '.'
 			case TypesOfChar.E:
 				return charString == 'E' || charString == 'e'
-				case TypesOfChar.add_minus:
-				return charString == '+' || charString == '-'
+      case TypesOfChar.add_minus:
+        return charString == '+' || charString == '-'
+      case TypesOfChar.add:
+        return charString == '+'
+      case TypesOfChar.minus:
+        return charString == '-'
 			case TypesOfChar.letter:
 				return (char >= 'A'.charCodeAt(0) && char <= 'Z'.charCodeAt(0)) || (char >= 'a'.charCodeAt(0) && char <= 'z'.charCodeAt(0))
 			case TypesOfChar.letter_:

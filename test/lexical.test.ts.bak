@@ -9,7 +9,8 @@ const codeFiles: string[] = [
   path.resolve(__dirname, './code/string.c'),
   path.resolve(__dirname, './code/boolIntFloat.c'),
   path.resolve(__dirname, './code/keyword.c'),
-  path.resolve(__dirname, './code/identifier.c')
+  path.resolve(__dirname, './code/identifier.c'),
+  path.resolve(__dirname, './code/final.c')
 ]
 const symTableOutPaths: string[] = [
   path.resolve(__dirname, './code/demo.c.symTable.json'),
@@ -18,7 +19,8 @@ const symTableOutPaths: string[] = [
   path.resolve(__dirname, './code/string.c.symTable.json'),
   path.resolve(__dirname, './code/boolIntFloat.c.symTable.json'),
   path.resolve(__dirname, './code/keyword.c.symTable.json'),
-  path.resolve(__dirname, './code/identifier.c.symTable.json')
+  path.resolve(__dirname, './code/identifier.c.symTable.json'),
+  path.resolve(__dirname, './code/final.c.symTable.json')
 ]
 const tokenSequenceOutPaths: string[] = [
   path.resolve(__dirname, './code/demo.c.tokenSequence.txt'),
@@ -27,7 +29,8 @@ const tokenSequenceOutPaths: string[] = [
   path.resolve(__dirname, './code/string.c.tokenSequence.txt'),
   path.resolve(__dirname, './code/boolIntFloat.c.tokenSequence.txt'),
   path.resolve(__dirname, './code/keyword.c.tokenSequence.txt'),
-  path.resolve(__dirname, './code/identifier.c.tokenSequence.txt')
+  path.resolve(__dirname, './code/final.c.tokenSequence.txt'),
+  path.resolve(__dirname, './code/final.c.tokenSequence.txt')
 ]
 
 describe('lexical', function () {
@@ -49,7 +52,10 @@ describe('lexical', function () {
   // it('should parse 标识符', function () {
   //   lexical.parseFile(codeFiles[6], symTableOutPaths[6], tokenSequenceOutPaths[6])
   // })
-  it('should parse 语法错误', function () {
-    lexical.parseFile(codeFiles[0], symTableOutPaths[0], tokenSequenceOutPaths[0])
+  // it('should parse 语法错误', function () {
+  //   lexical.parseFile(codeFiles[0], symTableOutPaths[0], tokenSequenceOutPaths[0])
+  // })
+  it('should parse FINAL', function () {
+    lexical.parseFile(codeFiles[7], symTableOutPaths[7], tokenSequenceOutPaths[7])
   })
 })
