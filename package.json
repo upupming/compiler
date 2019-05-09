@@ -2,12 +2,25 @@
   "name": "@upupming/compiler",
   "version": "1.0.0",
   "description": "Compiler implementation in node.js, just for teaching and learning purpose",
-  "main": "src/index.js",
+  "main": "out/index.js",
   "scripts": {
     "test": "mocha --require ts-node/register 'test/**/*.{ts,tsx}' --timeout 10000000",
-    "compile": "tsc -p .",
     "cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- --timeout 100000",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "compile": "npm run html && tsc",
+    "start": "electron out/index.js",
+    "html": "copyfiles -u 1 src/**/*.html src/**/*.css src/**/*.js out/",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "upupming.site.compiler",
+    "mac": {
+      "category": "public.app-category.education"
+    },
+    "extraFiles": [
+      "test"
+    ]
   },
   "repository": {
     "type": "git",
@@ -23,17 +36,23 @@
   },
   "homepage": "https://github.com/upupming/compiler#readme",
   "devDependencies": {
+    "@types/jquery": "^3.3.29",
     "@types/mocha": "^5.2.6",
     "@types/node": "^11.13.4",
+    "copyfiles": "^2.1.0",
     "coveralls": "^3.0.3",
+    "electron": "^5.0.1",
+    "electron-builder": "^20.40.2",
     "istanbul": "^0.4.5",
     "mocha": "^6.0.2",
+    "nodemon": "^1.19.0",
     "should": "^13.2.3",
     "standard": "*",
     "ts-node": "^8.0.3",
     "typescript": "^3.4.3"
   },
   "dependencies": {
+    "electron-reload": "^1.4.0",
     "@types/lodash": "^4.14.123",
     "lodash": "^4.17.11",
     "lodash-id": "^0.14.0",

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>编译原理大作业</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+  <!-- https://electronjs.org/docs/faq -->
+  <script>
+      window.nodeRequire = require;
+      delete window.require;
+      delete window.exports;
+      delete window.module;
+  </script>
+
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/popper.js"></script>
+  <script src="assets/js/bootstrap.bundle.js"></script>
+
+  <link rel="stylesheet" href="assets/css/fonts.css">
+
+  <script src="assets/js/auto-line-number.js"></script>
+</head>
+
+<body class="font-kai">
+
+  <div class="container">
+    <div class="row">
+      <form class="col-sm">
+        <div class="form-group">
+          <label for="sourceCode">源代码</label>
+          <textarea class="form-control" id="sourceCode" rows="6"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary float-right" id="lexical">词法分析</button>
+      </form>
+      <form class="col-sm">
+        <div class="form-group">
+          <label for="tokenSequence">token 序列</label>
+          <textarea class="form-control" id="tokenSequence" rows="6"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary float-right" id="grammar">语法分析</button>
+      </form>
+    </div>
+
+    <div class="row">
+      <form class="col-sm">
+        <div class="form-group">
+          <label for="grammarTree">语法生成树</label>
+          <textarea class="form-control" id="grammarTree" rows="6"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary float-right" id="semantic">语义分析</button>
+      </form>
+      <form class="col-sm">
+        <div class="form-group">
+          <label for="quadCode">四元式</label>
+          <textarea class="form-control" id="quadCode" rows="6"></textarea>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <script>
+    $("textarea").setTextareaCount();
+  </script>
+
+  <script>
+    // You can also require other files to run in this process
+    nodeRequire('./renderer.js')
+  </script>
+</body>
+
+</html>

@@ -4,3 +4,5 @@ out
 *.symTable.json
 *.tokenSequence.txt
 .vscode
+dist
+out
