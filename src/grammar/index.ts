@@ -274,8 +274,8 @@ let state = 0
  * @param FIRST 
  */
 function getClosure(item: Item, grammarAll: GrammarAll, FIRST: FIRSTArrayObject): Item {
-  console.log('============== Begin getClosure ==============')
-  printItem('Initial Item', item)
+  // console.log('============== Begin getClosure ==============')
+  // printItem('Initial Item', item)
   let nonTerminals = grammarAll.nonTerminals
   let grammar: Production[] = grammarAll.grammar
   // console.log(`typeof grammar: ${typeof grammar}`)
@@ -341,7 +341,7 @@ function getClosure(item: Item, grammarAll: GrammarAll, FIRST: FIRSTArrayObject)
       }
     }
   }
-  console.log('============== End getClosure ==============')
+  // console.log('============== End getClosure ==============')
   // item.state = state++
   return item
 }
@@ -356,7 +356,7 @@ function getClosure(item: Item, grammarAll: GrammarAll, FIRST: FIRSTArrayObject)
  * @param state 新项目的状态号
  */
 function goto(item: Item, X: string, grammarAll: GrammarAll, FIRST: FIRSTArrayObject): Item {
-  console.log(`====== Begin Goto function ===== `)
+  // console.log(`====== Begin Goto function ===== `)
   // console.log(`Cal goto item = ${item.toString()} \n X = ${X} `)
   let J = new Item([])
   for (let production of item.productions) {
@@ -368,7 +368,7 @@ function goto(item: Item, X: string, grammarAll: GrammarAll, FIRST: FIRSTArrayOb
   // console.log(`J = ${J.toString()} `)
   let to = getClosure(J, grammarAll, FIRST)
   // console.log(`goto = ${to.toString()} `)
-  console.log(`====== End Goto function ===== `)
+  // console.log(`====== End Goto function ===== `)
   return to
 }
 
